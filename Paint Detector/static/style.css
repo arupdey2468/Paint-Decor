@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fe9f70;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the top */
+    min-height: 100vh;  /* Ensure full height */
+    position: relative;  /* To position signature */
+}
+
+
+.watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.8; /* Adjust opacity for fading effect */
+    pointer-events: none; /* Prevent interaction with the watermark */
+    z-index: -1; /* Place it behind all other elements */
+}
+
+.watermark img {
+    max-width: 100%; /* Responsive */
+    height: auto;
+}
+
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #fe9f70;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(164, 29, 29, 0.1);
+    margin-top: 100px;  /* Add margin so that the fixed header does not overlap */ 
+}
+
+h1 {
+    font-size: 36px;
+    font-style: italic;
+    position: fixed;  /* Keep the title fixed at the top */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);  /* Center it horizontally */
+    background-color: #fe9f70;  /* Background to make it readable over scroll */
+    padding: 10px;
+    z-index: 1000;  /* Ensure it stays above everything */
+    width: 100%;  /* Full width */
+    text-align: center;  /* Align the title */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);  /* Subtle shadow for visibility */
+    animation: colorChange 1s infinite;  /* Apply color change animation */
+}
+
+
+
+form {
+    margin: 20px 0;
+}
+
+input[type="file"] {
+    padding: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+img {
+    margin-top: 20px;
+    max-width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+}
+
+/* Detected color section */
+.color-display {
+    margin: 20px 0;
+}
+
+.color-box {
+    width: 20mm;  /* Increased size */
+    height: 20mm;
+    border: 1px solid #fdfcfc;  /* Optional: add border for clarity */
+}
+
+.color-label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Uploaded image with increased width */
+.uploaded-image {
+    width: 100mm;  /* Increased size */
+    height: auto;  /* Maintain aspect ratio */
+    margin-top: 10px;
+}
+
+/* Signature at the bottom-right corner with color-changing animation */
+.signature {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-style: italic;
+    animation: colorChange 1s infinite;  /* Apply color change animation */
+}
+
+/* Keyframes for color-changing effect */
+@keyframes colorChange {
+    0% { color: red; }
+    25% { color: yellow; }
+    50% { color: green; }
+    75% { color: blue; }
+    100% { color: red; }
+}

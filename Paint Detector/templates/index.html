@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindustan Cement Agency</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="watermark"><img src="{{ url_for('static', filename='images/watermark.jpg') }}"  alt="Watermark"></div>  <!-- Watermark -->
+
+    <h1>Hindustan Cement Agency</h1>  <!-- Fixed title -->
+
+    <div class="container">
+        <!-- Background Image -->
+        <div class="background-image"></div>
+
+        <!-- Form to Upload Image -->
+        <form method="POST" enctype="multipart/form-data">
+            <label for="file">Upload an Image:</label>
+            <input type="file" name="file" id="file">
+            <button type="submit">Upload</button>
+        </form>
+
+        <!-- Display the Detected Color and Label -->
+        {% if color_image and color_label %}
+        <div class="color-display">
+            <h2>Detected Color:</h2>
+            <!-- Display color box -->
+            <img src="data:image/png;base64,{{ color_image }}" alt="Detected Color" class="color-box">
+            <!-- Display bold label -->
+            <p class="color-label">{{ color_label }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Display the Uploaded Image -->
+        {% if file_url %}
+            <h2>Uploaded Image:</h2>
+            <img src="{{ file_url }}" alt="Uploaded Image" class="uploaded-image">
+        {% endif %}
+    </div>
+
+    <!-- Signature -->
+    <div class="signature">
+        ~Hritik Gharg
+    </div>
+
+</body>
+</html>
